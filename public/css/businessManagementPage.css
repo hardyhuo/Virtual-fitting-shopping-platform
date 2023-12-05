@@ -1,0 +1,393 @@
+.mask {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4000px;
+    background-color: rgba(0, 0, 0, .6);
+
+}
+
+/* buttonArea */
+#buttonArea {
+    text-align: center;    
+    
+}
+
+.btnAreaCenter {
+    margin: 30px auto;
+    width: 1400px;
+}
+
+#viewProfileButton,
+#modifyProfileButton,
+#modifyPasswordButton,
+#itemMangementButton,
+#showUploadItemDivButton {
+    width: 180px;
+    margin-left: px;
+}
+
+/* 五个按钮 */
+#viewProfileButton:hover,
+#modifyProfileButton:hover,
+#modifyPasswordButton:hover,
+#itemMangementButton:hover,
+#showUploadItemDivButton:hover {
+    background-color: #2c7ccc;
+}
+
+
+.businessManagement_title {
+    padding-left: 340px;
+    padding-top: 40px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* upload new item */
+.infoTable_uploadItem {
+    width: 500px;
+    margin: 25px auto;
+}
+
+.infoTable_uploadItem tr {
+    height: 45px;
+}
+
+.infoTable_uploadItem input {
+    width: 230px;
+}
+
+#itemNameInput_t {
+    padding-left: 62px;
+}
+
+#itemBrandInput_t {
+    padding-left: 62px;
+}
+
+#numStockInput_t {
+    padding-left: 24px;
+}
+
+#itemPriceInput_t {
+    padding-left: 72px;
+}
+
+select {
+    width: 230px;
+    height: 30px;
+}
+
+.infoButton {
+    margin: 0 auto;
+    width: 30px;
+    margin-top: 36px;
+}
+
+#uploadItemButton {  
+    background-color: #129646;
+}
+
+/* view profile */
+.vp_title {
+    padding-left: 400px;
+    padding-top: 20px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.infoTable_viewProfile {
+    width: 370px;
+    margin: 15px auto;
+}
+
+.infoTable_viewProfile tr {
+    height: 40px;
+}
+
+#viewProfile_modifyButton {
+    margin-left: 718px;
+    background-color: #2c7ccc;
+}
+
+#viewProfile_backButton {
+    width: 78px;
+}
+
+/* modify profile */
+.mp_title {
+    padding-left: 400px;
+    padding-top: 20px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.infoTable_modifyProfile {
+    width: 370px;
+    margin: 15px auto;
+}
+
+.infoTable_modifyProfile tr {
+    height: 40px;
+}
+
+#modifyProfile_confirmButton {
+    background-color: #129646;
+}
+
+#modifyProfile_backButton {
+    width: 78px;
+}
+
+/* modify password */
+.mps_title {
+    padding-left: 400px;
+    padding-top: 20px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.infoTable_modifyPassword {
+    width: 400px;
+    margin: 15px auto;
+}
+
+.infoTable_modifyPassword tr {
+    height: 50px;
+}
+
+#modifyPassword_confirmButton {
+    background-color: #129646;
+}
+
+#modifyPassword_backButton {
+    width: 78px;
+}
+
+/* item management */
+.im-warp {
+    margin: 0 auto;
+   width: 1400px;
+}
+
+.im-thead {
+    height: 45px;
+    line-height: 32px;
+    text-align: center;
+    padding: 5px 0;
+    background: #f3f3f3;
+    border: 1px solid #e9e9e9;
+    border-top: 0;
+}
+
+.im-thead>td {
+    float: left;
+}
+
+.im-item {
+    text-align: center;
+    border-style: solid;
+    border-width: 0.3px 1px 1px;
+    border-color: #aaa #f1f1f1 #f1f1f1;
+    padding-top: 14px;
+    margin: 15px 0;
+}
+
+.p-img {
+    float: left;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.p-img img {
+    float: left;
+    width: 120px;
+    height: 130px;
+}
+
+
+.p-stock,
+.p-price,
+.p-category,
+.p-totalsold {
+    padding: 0 30px;
+}
+
+.p-action {
+    float: left;
+    text-align: center;
+    padding-left: 16px;
+    padding-top: 52px;
+    width: 500px;
+    height: 150px;
+}
+
+button[name="enbleButton"] {
+    width: 100px;
+    background-color: #129646;
+}
+
+button[name="disableButton"] {
+    width: 100px;
+    background-color: #f5ba00;
+}
+
+button[name="deleteItemButton"] {
+    width: 100px;
+    background-color: #c6343f;
+}
+
+button[name="editItemButton"] {
+    width: 100px;
+    background-color: #2c7ccc;
+}
+
+button[name="viewCommentsButton"] {
+    width: 150px;
+    background-color: #6d757d;
+}
+
+/* item management button-area */
+#itemManagement_updateButton {
+    margin-left: 1000px;
+    width: 150px;
+    background-color: #129646;
+}
+
+#itemManagement_backButton {
+    width: 150px;
+}
+
+/* edit item detail */
+.editItemDetailDiv {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translateX(-299px);
+    width: 600px;
+    height: 500px;
+    background-color: #f3f3f3;
+    border: 1px solid rgb(109, 117, 125, 0.3);
+    border-radius: 6px;
+
+}
+
+.editItemCenter {
+    margin-top: 45px;
+    margin-left: 100px;
+}
+
+.infoTable_editItem tr {
+    height: 50px;
+}
+
+.infoTable_editItem td {
+    width: 170px;
+}
+
+#itemCategorySelection_e {
+    width: 190px;
+}
+
+.editItemInfoButton {
+    height: 50px;
+    margin-left: 80px;
+    margin-top: 60px;
+}
+
+#confirmEditItemButton {
+    float: left;
+    width: 120px;
+ 
+    background-color: #129646;
+}
+
+#canceEditlItemButton {
+    float: left;
+    width: 120px;
+    margin-left: 20px;
+    background-color: #c6343f;
+}
+
+/* view item comments */
+.viewItemCommentsDiv {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-399px);
+    width: 800px;
+    height: 600px;
+    background-color: #f3f3f3;
+    border: 1px solid rgb(109, 117, 125, 0.3);
+    border-radius: 6px;
+}
+
+.viewCommentTtile {
+    margin: 15px auto;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#viewCommentTable {
+    margin: 0 auto;
+    width: 750px;
+}
+
+#tableHeader {
+    font-weight: 600;
+}
+
+#viewCommentTable tr {
+    margin: 0 auto;
+    border-top: 1px solid rgb(109, 117, 125, 0.3);
+}
+
+#viewCommentTable tr:last-child {
+    border-bottom: 1px solid rgb(109, 117, 125, 0.3);
+}
+
+#viewCommentBody{
+    height: 130px;
+}
+
+.commentContentDiv {
+    margin: 0 auto;
+    margin-right: 10px;
+    height: 120px;
+    width: 420px;
+    overflow: auto;
+}
+
+#viewCommentTable td {
+    padding: 10px 10px;
+    text-align: center;
+    /* overflow: auto; */
+}
+
+/* rating stars */
+.full-star {
+    float: left;
+    height: 17px;
+    width: 17px;
+    background-image: url(../../public/img/full-star.jpg);
+ 
+ }
+ 
+.vacant-star {
+    float: left;
+    height: 16px;
+    width: 16px;
+    background-image: url(../../public/img/vacant-star.jpg);
+ }
+
+
+#closeCommentsButton {
+    position: absolute;
+    top: 260px;
+    left: 180px;
+    background-color: #c6343f;
+}

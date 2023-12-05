@@ -1,0 +1,105 @@
+/*
+
+.entry {
+    padding: 10px;
+    display: flex;
+}
+
+#changePasswordDiv {
+    float: left;
+    width: 30%;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#userProfileDiv {
+    float: left;
+    width: 40%;
+    padding-top: 5%;
+    text-align: center;
+}
+
+#changePasswordDiv {
+    width: 100%;
+    text-align: center;
+}
+
+#headerDiv {
+    width: 100%;
+}
+
+#headerDiv div {
+    text-align: center;
+    float: left;
+    width: 50%;
+    background-color: lightslategray;
+}
+
+#headerDiv p {
+    padding-top: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
+#noPurchaseNoteDiv {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+} */
+
+.post-img-preview {
+    height: 90%;
+    width: 60%;
+}
+
+#tableTr {
+    background-color: lightgray;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    height: 50px;
+}
+
+td {
+    text-align: center;
+}
+
+#userProfileDiv {
+    width: 100%;
+}
+
+.entry {
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 35%;
+    width: 90%;
+    margin-top: 10px;
+}
+
+.historyPurchaseImgEntry {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.historyPurchaseEntryTextEntry {
+    float: left;
+    text-align: left;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#purchaseHistoryDiv {
+    height: 90vh;
+    width: 100%;
+    overflow: scroll;
+    display: inline-block;
+}
+
+#purchaseHistoryTd {
+    width: 60%;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../template/bootStrapSetUp.ejs'); -%>
+
+    <head>    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/home.css" type="text/css">    
+        <title>Home Page</title>
+    </head>
+
+    <body id = "main", style="background-color:white">
+
+        <%- include('../template/navBar.ejs'); -%>
+
+        <table style="width:100%">
+            <tr id = "tableTr">
+                <th>Best Sellers</th>
+                <th>Best Shops</th>
+            </tr>
+            <tr id = "mainTr">
+                <td id = "itemTd">
+                    <div id="bestItemDiv">
+                        <% for(let item of itemList) { %>
+                            <div class = "itemEntry">
+                                <div class = "itemImgEntry">
+                                    <img class="post-img-preview" src="data:image/<%=item.imageData[0].contentType%>;base64,<%=item.imageData[0].data.toString('base64')%>" alt="">
+                                </div>
+                                <div class = "itemTextEntry">
+                                    <p>Item Name: <%= item.title%></p>
+                                    <p>Item Brand: <%= item.brand%></p>
+                                    <p>Item Price: <%= item.price%></p>
+                                    <form method="get" action="/item/itemDetailPage/<%= item._id%>">
+                                        <button class = "btn btn-secondary" type="submit">View Product</button>
+                                    </form>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                </td>
+                <td id = "shopTd">
+                    <div id="bestShopDiv">
+                        <% for(let shop of shopList){ %>
+                            <div class = "shopEntry">
+                                <p>Shop Name: <%= shop.title%></p>
+                                <p>Shop Description: <%= shop.description%></p>
+                                <p>Shop Rating: <%= shop.rating%></p>
+                                <form method="get" action="/business/businessDetailPage/<%= shop.id%>">
+                                    <button  class = "btn btn-secondary" value="businessIdHere">Visit Shop</button>
+                                </form> 
+                            </div>
+                        <% } %>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </body>
+
+
+</html>

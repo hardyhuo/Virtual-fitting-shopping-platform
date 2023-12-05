@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../template/bootStrapSetUp.ejs'); -%>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Page</title>
+    </head>
+
+    <body id="main" , style="background-color:white">
+
+        <%- include('../template/navBar.ejs'); -%>
+
+        <% if(data.length == 0){ %>
+             <p>No Result Found</p>
+        <% } else{ %>
+            <% if(searchByItem) {%>
+                <div class="container-md p-5 ">
+                    <% for(var i=0; i<data.length; i++){ %>
+                        <div class="card m-3" style="width: 18rem; float: left">
+                            <img src="data:image/png;base64,<%= data[i].imageData[0].data.toString('base64')%>" height="250">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= data[i].title %></h5>
+                                <p class="card-text">Brand: <%= data[i].brand %></p>
+                                <p class="card-text">Price: <%= data[i].price %> AUD</p>
+                                <a href="/item/itemDetailPage/<%= data[i]._id %>" class="btn btn-dark">View Product</a>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            <%} else {%>
+                <div class="container-md p-5 ">
+                    <% for(var i=0; i<data.length; i++) { %>
+                        <div class="card m-3" style="width: 18rem; float: left">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= data[i].title %></h5>
+                                <p class="card-text">Description: <%= data[i].description %></p>
+                                <p class="card-text">Rating: <%= data[i].rating %></p>
+                                <a href="/business/businessDetailPage/<%= data[i]._id %>" class="btn btn-dark">View Shop</a>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+        <% } %> 
+                   
+    </body>
+
+
+</html>

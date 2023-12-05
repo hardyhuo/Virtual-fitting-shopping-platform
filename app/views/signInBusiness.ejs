@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../template/bootStrapSetUp.ejs'); -%>
+
+    <script src="/js/signInBusiness.js"></script>
+    <link rel="stylesheet" href="/css/signInBusiness.css" type="text/css">   
+
+    <head>        
+        <title>Login Page</title>
+    </head>
+
+    <body id = "main", style="background-color:white">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a id = "webTitleBackHomeTag" class="navbar-brand">eShop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+                    <a id = "homeTag" class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+            
+            </ul>
+        </div>
+    </nav>
+
+    <div class="inputBar">
+    <div class="title">
+        <p>Login as business</p>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+    </div>
+
+    <button id = "loginButton" type="button" class="btn btn-dark">Login</button>
+    </div>
+    <div class="linkArea">
+        <hr class="solid">
+
+        <div>
+        <a>Want to join us as business? </a><a href = "/signInUp/signUpBusinessPage">Sign Up As Business</a><a> now!</a>
+        </div>
+    
+        <hr class="solid">
+    </div>
+
+
+    </body>
+</html>

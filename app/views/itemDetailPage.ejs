@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../template/bootStrapSetUp.ejs'); -%>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/itemDetailPage.css" type="text/css">
+        <script src="/js/itemDetail.js"></script>
+        <title>Item Detail Page</title>
+    </head>
+
+    <body id="main" , style="background-color:white">
+
+        <%- include('../template/navBar.ejs'); -%>
+
+            <div class="container-md">
+                <div class="row">
+                    <div class="col-6">
+                        <img id="itemImg" class="w-100"
+                            src="data:image/<%=itemData.imageData[0].contentType%>;base64,<%=itemData.imageData[0].data.toString('base64')%>">
+                    </div>
+                    <div class="col-6">
+                        <h2 class="mt-5">
+                            <%= itemData.title%>
+                        </h2>
+                        <table class="table table-striped mt-5">
+                            <tr>
+                                <th>Brand:</th>
+                                <td>
+                                    <%= itemData.brand%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Seller:</th>
+                                <td>
+                                    <%= sellerName %>
+                                        <input type="hidden" id="sellerIdInputHidden" value="<%=itemData.sellerId%>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Total Sold:</th>
+                                <td>
+                                    <%= itemData.totalSold%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Price:</th>
+                                <td class="text-danger font-weight-bold">$<%= itemData.price%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Quantity:</th>
+                                <td>
+                                    <input id="addToCartNumberInput" type="number" value="1">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="text-right">
+                            <a id="downloadHerfHidden"
+                                href="data:image/<%=itemData.imageData[0].contentType%>;base64,<%=itemData.imageData[0].data.toString('base64')%>"
+                                download="<%= itemData.title%>.png%>"></a>
+                            <button id="virtualTryOnButton" type="button" class="btn btn-secondary">Virtual Try
+                                On</button>
+                            <% if(itemData.stock> 0){ %>
+                                <button type="button" value="<%=itemData._id%>" class="btn btn-warning"
+                                    id="addToCartButtonConfirm">Add To Cart</button>
+                                <button id="checkOutButton" class="btn btn-success" type="submit">Purchase</button>
+
+                                <div id="confirmCheckOutDiv" class="border p-3 mt-2 text-left">
+                                    <label id="purchaseMethodSelectionLabel" for="purchaseMethodSelection">Choose your
+                                        payment method:</label>
+                                    <select id="purchaseMethodSelection" name="purchaseMethodSelection">
+                                        <option value="debit">Debit</option>
+                                        <option value="masterCard">Master Card</option>
+                                        <option value="visa">Visa</option>
+                                        <option value="applePay">Apple Pay</option>
+                                    </select>
+                                    <div>
+                                        <button class="btn btn-success" id="checkOutButtonConfirm" type="submit"
+                                            value="<%=itemData._id%>">Confirm Purchase</button>
+                                        <button id="checkOutButtonCancel" class="btn btn-secondary"
+                                            type="submit">Cancel</button>
+                                    </div>
+                                </div>
+                                <% } else {%>
+                                    <p>Out of stock</p>
+                                <% } %>
+                                <div id="uploadPeopleDiv" class="border p-3 mt-2 text-left">
+                                    <label for="people">Please upload a pose of yourself</label>
+                                    <input type="file" id="people" class="form-control-file">
+                                    <br>
+                                    <label for="cloth">Please upload the cloth image just download</label>
+                                    <input type="file" id="cloth" class="form-control-file">
+                                    <br>
+                                    <button id="runVirtualTryOn" class="btn btn-success" type="submit">Try
+                                        It!</button>
+                                    <button id="runVirtualTryOnCancel" class="btn btn-secondary"
+                                        type="submit">Cancel</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="border-bottom my-4 p-2 text-info">
+                    Reviews
+                </h3>
+                <div id="addCommentDiv">
+                    <div class="my-2">
+                        <label for="itemRating">Choose a rating:</label>
+                        <select id="itemRatingSelection" name="itemRating" class="form-control w-25 d-inline">
+                            <option value="5">5</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+                    <textarea id="commentTextArea" name="commentTextArea" rows="5" class="w-100"></textarea>
+                    <button id="submitCommentButton" type="submit" value="<%=itemData._id%>"
+                        class="btn btn-outline-secondary">Comment</button>
+                </div>
+                <div id="itemReviewDiv">
+                    <hr class="solid">
+                    <div id="allCommentsDiv">
+                        <% if(allReviews.length==0){ %>
+                            <p>No Review Yet</p>
+                            <hr class="solid">
+                            <% } else{ %>
+                                <% for(let review of allReviews){ %>
+                                    <% if(review.reviewer !=null){ %>
+                                        <div class="itemCommentDivs">
+                                            <div>
+                                                <span class="font-weight-bold">From: </span>
+                                                <%= review.reviewer.userName %>
+                                            </div>
+                                            <div>
+                                                <span class="font-weight-bold">Rating: </span>
+                                                <% for(let i=0;i<review.rating; i++){ %>
+                                                    ⭐
+                                                <% } %>
+                                            </div>
+                                            <div class="mt-2">
+                                                <%= review.content%>
+                                            </div>
+                                        </div>
+                                        <hr class="solid">
+                                    <% } %>
+                                <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+
+    </body>
+
+
+</html>

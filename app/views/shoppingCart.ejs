@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../template/bootStrapSetUp.ejs'); -%>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/css/shoppingCart.css">
+        <script src="/js/shoppingCart.js"></script>
+    </head>
+
+    <body>
+
+        <%- include('../template/navBar.ejs'); -%>
+
+            <table class="c-container">
+                <!-- cart header -->
+                <tr class="cartHeader">
+
+                    <td class="headerGoods">Image</td>
+                    <td class="headerGoods">Title</td>
+                    <td class="headerprice">Price</td>
+                    <td class="headerNumber">Quantity</td>
+                    <td class="headerSum">Subtotal</td>
+                    <td class="headerAction">Operation</td>
+
+                </tr>
+
+                <!-- item details -->
+                <!-- load by js -->
+
+                <% for(let item of data){ %>
+                     <tr index='' class="cartItem">
+
+                        <td class="image">
+                            <div class="itemImg">
+                                <img  src="data:image/<%=item.imageData[0].contentType%>;base64,<%=item.imageData[0].data.toString('base64')%>">
+                            </div>
+                        </td>
+
+                        <td class="items">
+                            <%= item.title%>
+                        </td>
+                        
+                        <td class="itemPrice" name=""><%= item.price%></td>
+
+                        <td class="itemNum">
+                            <div class="quantityForm">
+                                <a href="#" class="minusAmount">-</a>
+                                <input type="number" class= "itemIpt" name="itemIpt" value="<%= item.quantity%>">
+                                <a href="#" class="addAmount" id="${item.itemId}">+</a>
+                                <button type="button" class="btn btn-secondary updateQuantityConfirm" value="<%= item.itemId%>">Update</button>
+                            </div>
+                        </td>
+
+                        <td class = "itemSum"><%= item.quantity * item.price%></td>
+
+                        <td class="itemAction">
+                            <button type="button" class="btn btn-danger itemDelete" value="<%= item.itemId%>">Delete</button>
+                        </td>
+                    </tr>
+                <% } %>
+            </table>
+
+            <div class="cartFooter">
+                <div class="toolbarRight">
+                    
+                    <div style="cursor: pointer;" class="checkOutButton">Checkout</div>
+                    
+                    <select id="purchaseMethodSelection" name="purchaseMethodSelection">
+                        <option value="">Choose your payment method</option>
+                        <option value="debit">Debit</option>
+                        <option value="masterCard">Master Card</option>
+                        <option value="visa">Visa</option>
+                        <option value="applePay">Apple Pay</option>
+                    </select>
+
+                    <div class="priceSum">Total: <em></em></div>
+                </div>
+            </div>
+
+
+    </body>
+
+</html>

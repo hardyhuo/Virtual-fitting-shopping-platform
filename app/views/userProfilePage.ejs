@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../template/bootStrapSetUp.ejs'); -%>
+
+    <head>
+
+        <title>User Profile Page</title>
+        <script type="text/javascript" src="/js/userProfilePage.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/userProfilePage.css" >
+
+    </head>
+
+    <body id = "main", style="background-color:white">
+
+        <%- include('../template/navBar.ejs'); -%>
+
+        <div id = "mainDiv">
+
+            <table style="width:100%">
+                <tr id = "tableTr">
+                    <th>User Profile</th>
+                    <th>Purchase History</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div id = "userProfileDiv">
+                            <p>User Name: <%= user.userName%></p>
+                            <input id="userNameInput" type="text" class="modifyFormElements" placeholder="New User Name" value= "<%= user.userName%>">
+                            
+                            <p>Email: <%= user.email%></p>
+                            <input id="userEmailInput" type="text" class="modifyFormElements" placeholder="New User Email" value = "<%= user.email%>" >
+                            
+                            <% if(user.gender == 0) { %>
+                                <p>Gender: Male</p>
+                                <select id = "genderSelector" name="gender" class="modifyFormElements">
+                                    <option value="0" selected>Male</option>
+                                    <option value="1">Female</option>
+                                </select>
+                            <% }else { %>
+                                <p>Gender: Female</p>
+                                <select id = "genderSelector" name="gender" class="modifyFormElements">
+                                    <option value="0">Male</option>
+                                    <option value="1" selected>Female</option>
+                                </select>
+                            <% } %>
+                            
+                            <p>Interested Category: <%= user.interestedCategory%></p>
+                            <div id = "interestedCategoryDiv" class="modifyFormElements">
+                                <input type="checkbox" id="shirts" name="catergory">
+                                <label for="shirts">Shirts</label>
+
+                                <input type="checkbox" id="suits" name="catergory">
+                                <label for="suits">Suits</label>
+
+                                <input type="checkbox" id="jackets" name="catergory">
+                                <label for="jackets">Jackets</label>
+
+                                <input type="checkbox" id="dress" name="catergory">
+                                <label for="dress">Dress</label>
+
+                                <input type="checkbox" id="pants" name="catergory">
+                                <label for="pants">Pants</label>
+
+                                <input type="checkbox" id="shoes" name="catergory">
+                                <label for="shoes">Shoes</label>
+                            </div>
+                            
+                            <div class="infoButton">
+                                <button id="modifyProfileButton" class = "btn btn-secondary">Modify</button>
+                                <button id="changePasswordButton" class="btn btn-secondary buttonAreaButtons">Change Password</button>
+                                <button id="confirmProfileModifyButton" class="modifyFormElements btn btn-secondary">Submit</button>
+                                <button id="cancelProfileModifyButton" class="modifyFormElements btn btn-secondary">Cancel</button>
+                            </div>
+
+                            <div id = "changePasswordDiv">
+                                <label for="currentPasswordInput">Current Password:</label>
+                                <input id="currentPasswordInput" type="text" class="changePasswordFormElement" placeholder="Current Password">
+                                <br>
+                                <label for="newPasswordInput">New Password:</label>
+                                <input id="newPasswordInput" type="text" class="changePasswordFormElement" placeholder="New Password">
+                                <br>
+                                <label for="confirmPasswordInput">Confirm Password:</label>
+                                <input id="confirmPasswordInput" type="text" class="changePasswordFormElement" placeholder="Confirm Password">
+                                <br>
+                                <button id="updatePasswordButton" class="btn btn-secondary">Confirm</button>
+                                <button id="cancelUpdatePasswordButton" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td id ="purchaseHistoryTd">
+                        <div id = "purchaseHistoryDiv">
+                            <% if(historyList.length>0){ %>
+                                <% for(let history of historyList) {%>
+                                    <div class = "entry">
+                                        <div class = "historyPurchaseImgEntry">
+                                            <img class="post-img-preview" src="data:image/<%=history.itemData.imageData[0].contentType%>;base64,<%=history.itemData.imageData[0].data.toString('base64')%>" alt="">
+                                        </div>
+
+                                        <div class = "historyPurchaseEntryTextEntry">
+                                            <p>Item Name: <%= history.itemData.title%></p>
+                                            <p>Item Brand: <%= history.itemData.brand%></p>
+                                            <p>Item Quantity: <%= history.quantity%></p>
+                                            <p>Payment Method: <%= history.paymentMethod%></p>
+                                            <p>Total Paid: <%= history.totalPaid%> AUD</p>
+                                            <p>Purchase Time: <%= history.purchaseTime%></p>
+                                            <form method="get" action="/item/itemDetailPage/<%= history.itemId%>">                    
+                                                <button id = "checkItemDetailButton" type="submit" class="btn btn-secondary">Check Item Detail</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <%} else {%>
+                                <div id = "noPurchaseNoteDiv">
+                                    <p id = "noPurchaseNoteP">No Purchase History Yet</p>
+                                </div>
+                            <% } %>
+                        </div>
+                        <br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,406 @@
+[{
+  "name": "LOOSE-FITTING SHIRT",
+  "category": "shirts",
+  "bank": "Zara",
+  "image": "image01.jpeg",
+  "price": "75.95 AUD",
+  "type": "MAN"
+},
+{
+  "name": "STRETCH SHIRT",
+  "category": "shirts",
+  "bank": "Zara",
+  "image": "image02.jpeg",
+  "price": "69.95 AUD",
+  "type": "MAN"
+},
+  {
+    "name": "TIGER PRINT SHIRT",
+    "category": "shirts",
+    "bank": "Zara",
+    "image": "image03.jpeg",
+    "price": "75.95 AUD",
+    "type": "MAN"
+  },
+  {
+    "name": "SKETCH PRINT SHIRT",
+    "category": "shirts",
+    "bank": "Zara",
+    "image": "image04.jpeg",
+    "price": "75.95 AUD",
+    "type": "MAN"
+  },
+  {
+    "name": "GIRAFFE PRINT SHIRT",
+    "category": "shirts",
+    "bank": "Zara",
+    "image": "image05.jpeg",
+    "price": "75.95 AUD",
+    "type": "MAN"
+  },
+  {
+    "name": "SUIT BLAZER",
+    "category": "suits",
+    "bank": "Zara",
+    "image": "image06.jpeg",
+    "price": "219.00 AUD",
+    "type": "MAN"
+  },{
+  "name": "SUIT BLAZER",
+  "category": "suits",
+  "bank": "Zara",
+  "image": "image07.jpeg",
+  "price": "189.00 AUD",
+  "type": "MAN"
+},{
+  "name": "DOUBLE-FACED JACKET",
+  "category": "jackets",
+  "bank": "Zara",
+  "image": "image08.jpeg",
+  "price": "189.00 AUD",
+  "type": "MAN"
+},{
+  "name": "FAUX SUEDE JACKET",
+  "category": "jackets",
+  "bank": "Zara",
+  "image": "image09.jpeg",
+  "price": "109.00 AUD",
+  "type": "MAN"
+},{
+  "name": "VINTAGE LEATHER BIKER JACKET",
+  "category": "jackets",
+  "bank": "Zara",
+  "image": "image10.jpeg",
+  "price": "319.00 AUD",
+  "type": "MAN"
+},{
+  "name": "PLEATED CHINO TROUSERS",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image11.jpeg",
+  "price": "75.95 AUD",
+  "type": "MAN"
+},{
+  "name": "SKINNY CHINO TROUSERS",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image12.jpeg",
+  "price": "55.95 AUD",
+  "type": "MAN"
+},{
+  "name": "TEXTURED COMFORT TROUSERS",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image13.jpeg",
+  "price": "75.95 AUD",
+  "type": "MAN"
+},{
+  "name": "BASIC JOGGING TROUSERS",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image14.jpeg",
+  "price": "55.95 AUD",
+  "type": "MAN"
+},{
+  "name": "TEXTURED SUIT TROUSERS",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image15.jpeg",
+  "price": "75.95 AUD",
+  "type": "MAN"
+},{
+  "name": "CORDUROY TROUSERS",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image16.jpeg",
+  "price": "75.95 AUD",
+  "type": "MAN"
+},{
+  "name": "PLEATED JOGGER WAIST TROUSERS",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image17.jpeg",
+  "price": "75.95 AUD",
+  "type": "MAN"
+},{
+  "name": "VIBRAM® LEATHER BOOTS",
+  "category": "shoes",
+  "bank": "Zara",
+  "image": "image18.jpeg",
+  "price": "279.00 AUD",
+  "type": "MAN"
+},{
+  "name": "VIBRAM® LEATHER DECK SHOES",
+  "category": "shoes",
+  "bank": "Zara",
+  "image": "image19.jpeg",
+  "price": "219.00 AUD",
+  "type": "MAN"
+},{
+  "name": "CHUNKY SOLE RUNNING SNEAKERS",
+  "category": "shoes",
+  "bank": "Zara",
+  "image": "image20.jpeg",
+  "price": "69.95 AUD",
+  "type": "MAN"
+},{
+  "name": "MULTI-PIECE RUNNING TRAINERS",
+  "category": "shoes",
+  "bank": "Zara",
+  "image": "image21.jpeg",
+  "price": "79.95 AUD",
+  "type": "MAN"
+},{
+  "name": "FRONT KNOT TOP",
+  "category": "tops",
+  "bank": "Zara",
+  "image": "image22.jpeg",
+  "price": "65.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "KNIT TOP WITH FLORAL EMBROIDERY",
+  "category": "tops",
+  "bank": "Zara",
+  "image": "image23.jpeg",
+  "price": "55.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "GIRL T-SHIRT",
+  "category": "T_shirt",
+  "bank": "Zara",
+  "image": "image24.jpeg",
+  "price": "39.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "STRIPED T-SHIRT WITH PATCH",
+  "category": "T_shirt",
+  "bank": "Zara",
+  "image": "image25.jpeg",
+  "price": "39.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "CONTRAST T-SHIRT",
+  "category": "T_shirt",
+  "bank": "Zara",
+  "image": "image26.jpeg",
+  "price": "29.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "EMBROIDERED T-SHIRT",
+  "category": "T_shirt",
+  "bank": "Zara",
+  "image": "image27.jpeg",
+  "price": "35.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "DENIM OVERSHIRT WITH POCKETS",
+  "category": "jackets",
+  "bank": "Zara",
+  "image": "image28.jpeg",
+  "price": "75.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "OVERSIZED DENIM JACKET",
+  "category": "jackets",
+  "bank": "Zara",
+  "image": "image29.jpeg",
+  "price": "99.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "CROPPED DENIM JACKET",
+  "category": "jackets",
+  "bank": "Zara",
+  "image": "image30.jpeg",
+  "price": "75.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "SILK TROUSERS - LIMITED EDITION",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image31.jpeg",
+  "price": "189.00 AUD",
+  "type": "WOMAN"
+},{
+  "name": "MINI FLARE TROUSERS",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image32.jpeg",
+  "price": "65.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "LONG FLOWING TROUSERS",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image33.jpeg",
+  "price": "75.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "GEOMETRIC PRINT TROUSERS",
+  "category": "pants",
+  "bank": "Zara",
+  "image": "image34.jpeg",
+  "price": "75.95 AUD",
+  "type": "WOMAN"
+},{
+  "name": "FLORAL LACE UP MID-HEEL LEATHER SANDALS",
+  "category": "shoes",
+  "bank": "Zara",
+  "image": "image35.jpeg",
+  "price": "219.00 AUD",
+  "type": "WOMAN"
+},{
+  "name": "LEATHER TRAINERS",
+  "category": "shoes",
+  "bank": "Zara",
+  "image": "image36.jpeg",
+  "price": "139.00 AUD",
+  "type": "WOMAN"
+},{
+  "name": "HIGH-HEEL SLINGBACK SHOES",
+  "category": "shoes",
+  "bank": "Zara",
+  "image": "image37.jpeg",
+  "price": "99.00 AUD",
+  "type": "WOMAN"
+},{
+  "name": "Nike Air Force 1 '07 FOR MAN",
+  "category": "shoes",
+  "bank": "Nike",
+  "image": "image38.webp",
+  "price": "180.00 AUD",
+  "type": "MAN"
+},{
+  "name": "Nike Air Force 1 '07 FOR WOMAN",
+  "category": "shoes",
+  "bank": "Nike",
+  "image": "image38.webp",
+  "price": "180.00 AUD",
+  "type": "WOMAN"
+},{
+  "name": "Kyrie Low 5",
+  "category": "shoes",
+  "bank": "Nike",
+  "image": "image39.webp",
+  "price": "160.00 AUD",
+  "type": "MAN"
+},{
+  "name": "Air Jordan 5 Dark Concord",
+  "category": "shoes",
+  "bank": "Nike",
+  "image": "image40.webp",
+  "price": "270.00 AUD",
+  "type": "MAN"
+},{
+  "name": "Rattan and Particle Grey",
+  "category": "shoes",
+  "bank": "Nike",
+  "image": "image41.webp",
+  "price": "190.00 AUD",
+  "type": "MAN"
+},{
+  "name": "Nike x Travis Scott",
+  "category": "jackets",
+  "bank": "Nike",
+  "image": "image42.webp",
+  "price": "415.00 AUD",
+  "type": "MAN"
+},{
+  "name": "Nike x CACT.US CORP Men's 1/4 Zip Top",
+  "category": "jackets",
+  "bank": "Nike",
+  "image": "image43.png",
+  "price": "415.00 AUD",
+  "type": "MAN"
+},{
+  "name": "Nike x CACT.US CORP Men's Gilet",
+  "category": "jackets",
+  "bank": "Nike",
+  "image": "image44.webp",
+  "price": "215.00 AUD",
+  "type": "MAN"
+},{
+  "name": "Nike x CACT.US CORP Women's Pullover Crew Sweatshirt",
+  "category": "jackets",
+  "bank": "Nike",
+  "image": "image45.png",
+  "price": "150.00 AUD",
+  "type": "WOMAN"
+},{
+  "name": "Nike x CACT.US CORP Men's Woven Trousers",
+  "category": "pants",
+  "bank": "Nike",
+  "image": "image46.png",
+  "price": "190.00 AUD",
+  "type": "MAN"
+},{
+  "name": "Nike x CACT.US CORP Women's Shorts",
+  "category": "pants",
+  "bank": "Nike",
+  "image": "image47.png",
+  "price": "130.00 AUD",
+  "type": "WOMAN"
+},{
+  "name": "Nike x CACT.US CORP Long-Sleeve T-Shirt",
+  "category": "T_Shirt",
+  "bank": "Nike",
+  "image": "image48.png",
+  "price": "70.00 AUD",
+  "type": "MAN"
+},{
+  "name": "Nike x CACT.US CORP T-Shirt",
+  "category": "T_shirt",
+  "bank": "Nike",
+  "image": "image49.png",
+  "price": "60.00 AUD",
+  "type": "MAN"
+},{
+  "name": "BB MONOGRAM TWISTED SLEEVE SHIRT",
+  "category": "shirts",
+  "bank": "Balenciaga",
+  "image": "image50.jpeg",
+  "price": "1725.00 AUD",
+  "type": "WOMAN"
+},{
+  "name": "OVERSIZED CUT-UP JACKET",
+  "category": "jackets",
+  "bank": "Balenciaga",
+  "image": "image51.jpeg",
+  "price": "2490.00 AUD",
+  "type": "MAN"
+},{
+  "name": "BB MONOGRAM REGULAR FIT TRACKSUIT JACKET",
+  "category": "jackets",
+  "bank": "Balenciaga",
+  "image": "image52.jpeg",
+  "price": "2850.00 AUD",
+  "type": "WOMAN"
+},{
+  "name": "SPORTY B OVERSIZED TRACKSUIT JACKET",
+  "category": "jackets",
+  "bank": "Balenciaga",
+  "image": "image53.jpeg",
+  "price": "3250.00 AUD",
+  "type": "MAN"
+},{
+  "name": "PATCHED PEACOAT",
+  "category": "jackets",
+  "bank": "Balenciaga",
+  "image": "image54.jpeg",
+  "price": "4250.00 AUD",
+  "type": "WOMAN"
+},{
+  "name": "ALLOVER LOGO BELL SLEEVE JACKET",
+  "category": "jackets",
+  "bank": "Balenciaga",
+  "image": "image55.jpeg",
+  "price": "2350.00 AUD",
+  "type": "WOMAN"
+}
+
+
+
+
+
+
+
+]

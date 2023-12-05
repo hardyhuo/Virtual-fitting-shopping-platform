@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../template/bootStrapSetUp.ejs'); -%>
+
+    <head>    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Business Detail Page</title>
+    </head>
+    <body id = "main">
+
+        <%- include('../template/navBar.ejs'); -%>
+        </table>
+
+            <div id = "businessInfoDiv">
+                <h1 style="text-align: center; margin-top: 20px;"><%= data.title%></h1>
+                <hr class="solid">
+                <div class="description">           
+                    <ul><h2></h2></ul> 
+                    <ul></ul>
+                </div>
+
+                <table style="margin-left: 15.5%;">
+                    <tr>
+                        <td><h3>Rating:</h3></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= data.rating%></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Email:</h3></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= data.email%></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Description:</h3></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= data.description%></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Address:</h3></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= data.address%></td>
+                    </tr>
+                </table>
+
+            </div>
+    
+            <div id = "itemSellingDiv" style="margin-left:15%;">
+                <% for(var i=0; i<itemSelling.length; i++){ %>
+                    <div class="card m-1" style="width: 20%; float: left;">
+                        <img src="data:image/png;base64,<%= itemSelling[i].imageData[0].data.toString('base64')%>" height="250">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= itemSelling[i].title %></h5>
+                            <hr class="solid">
+                            <p class="card-text">Brand: <%= itemSelling[i].brand %></p>
+                            <p class="card-text">Price: <%= itemSelling[i].price %> AUD</p>
+                            <a href="/item/itemDetailPage/<%= itemSelling[i]._id %>" class="btn btn-dark">View Product</a>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+
+
+        
+    </body>
+
+
+</html>

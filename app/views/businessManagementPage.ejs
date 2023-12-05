@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../template/bootStrapSetUp.ejs'); -%>
+
+    <script>
+
+        let bId = $.cookie("businessId");
+        if (bId === undefined) {
+            window.location.href = '/';
+        }
+
+        function logOut() {
+            let businessId = $.cookie("businessId");
+
+            if (businessId !== undefined) {
+                $.removeCookie('businessId', { path: '/' });
+                alert("Log out Successfully");
+                window.location.href = '/';
+            }
+            else {
+                alert("Please Login First");
+            }
+        }
+
+    </script>
+
+    <head>
+        <title>Business Management Page</title>
+        <script src="/js/businessManagement.js"></script>
+        <link rel="stylesheet" href="/css/businessManagementPage.css" type="text/css">
+    </head>
+
+    <body id="main">
+
+        <div class="mask"></div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a id="webTitleBackHomeTag" class="navbar-brand">eShop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item active">
+                        <a id="logoutTag" class="nav-link" href="javascript:logOut();">Log out <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <div id="buttonArea">
+            <div class="btnAreaCenter">
+                <button id="viewProfileButton" class="btn btn-secondary clickHighLight">View Profile</button>
+                <button id="modifyProfileButton" class="btn btn-secondary clickHighLight">Modify Profile</button>
+                <button id="modifyPasswordButton" class="btn btn-secondary clickHighLight">Modify Password</button>
+                <button id="itemMangementButton" class="btn btn-secondary clickHighLight">Item Management</button>
+                <button id="showUploadItemDivButton" class="btn btn-secondary clickHighLight">Upload new item</button>
+
+            </div>
+        </div>
+
+        <!-- view profile -->
+        <div id="viewProfileDiv">
+            <!-- <div class="vp_title">View Profile</div> -->
+            <table class="infoTable_viewProfile">
+                <tr>
+                    <td id="businessTitle_t">Title:</td>
+                    <td name="title" class="" type="text" id="">
+                        <%= businessInfo.title%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td id="businessEmail_t">Email:</td>
+                    <td name="email" class="" type="text" id="">
+                        <%= businessInfo.email%>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="businessDescription_t">Description:</td>
+                    <td name="description" class="" id="" type="text">
+                        <%= businessInfo.description%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td id="businessAddress_t">Address:</td>
+                    <td name="address" class="" id="" type="text">
+                        <%= businessInfo.address%>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <!-- modify profile -->
+        <div id="modifyProfileDiv">
+            <form id="updateBusinessProfileForm" method="post" action="/business/updateBusinessProfile" enctype="">
+                <table class="infoTable_modifyProfile">
+                    <tr>
+                        <td id="businessTitle_t">Title:</td>
+                        <td><input name="title" class="" type="text" id="businessTitleInput"
+                                value="<%= businessInfo.title%>"></td>
+                    </tr>
+                    <tr>
+                        <td id="businessEmail_t">Email:</td>
+                        <td><input name="email" class="" type="text" id="businessEmailInput"
+                                value="<%= businessInfo.email%>"></td>
+                    </tr>
+
+                    <tr>
+                        <td id="businessDescription_t">Description:</td>
+                        <td><input name="description" class="" id="businessDescriptionInput" type="text"
+                                value="<%= businessInfo.description%>"></td>
+                    </tr>
+                    <tr>
+                        <td id="businessAddress_t">Address:</td>
+                        <td><input name="address" class="" id="businessAddressInput" type="text"
+                                value="<%= businessInfo.address%>"></td>
+                    </tr>
+                    <input type="hidden" name="businessId" value="<%= businessInfo.id%>" />
+                </table>
+            </form>
+
+            <div class="infoButton">
+                <button id="modifyProfile_confirmButton" class="btn btn-secondary">Confirm</button>
+            </div>
+        </div>
+
+        <!-- modify password -->
+        <div id="modifyPasswordDiv">
+            <form id="updatePasswordForm" method="" action="" enctype="">
+                <table class="infoTable_modifyPassword">
+                    <tr>
+                        <td id="currentPassword_t">Current Password:</td>
+                        <td><input id="currentPasswordInput" name="currentPasswordInput" class="" type="password"></td>
+                    </tr>
+                    <tr>
+                        <td id="newPassword_t">New password:</td>
+                        <td><input id="newPasswordInput" name="newPasswordInput" class="" type="password"></td>
+                    </tr>
+                    <tr>
+                        <td id="confirmPassword_t">Confirm Password:</td>
+                        <td><input id="confirmPasswordInput" name="confirmPasswordInput" class="" type="password"></td>
+                    </tr>
+                </table>
+            </form>
+
+            <div class="infoButton">
+                <button id="modifyPassword_confirmButton" class="btn btn-secondary">Confirm</button>
+            </div>
+
+        </div>
+
+        <!-- item management -->
+        <div id="itemManagementDiv">
+            <!-- show item detail -->
+            <div class="c-container">
+                <div class="w">
+                    <!-- main part -->
+                    <table class="im-warp">
+                        <!-- header -->
+                        <tr class="im-thead">
+                            <!-- <div class="headerCenter"> -->
+                            <th class="t-img">Image</th>
+                            <th class="t-title">Title</th>
+                            <th class="t-brand">Brand</th>
+                            <th class="t-stock">Stock</th>
+                            <th class="t-price">Price</th>
+                            <th class="t-category">Catagory</th>
+                            <th class="t-totalsold">Totalsold</th>
+                            <th class="t-action">Option</th>
+                            <!-- </div> -->
+                        </tr>
+                        <!-- item details -->
+                        <% for(let item of itemSelling) {%>
+                            <tr class="im-item">
+                                <td>
+                                    <div class="p-img">
+                                        <img class="post-img-preview"
+                                            src="data:image/<%=item.imageData[0].contentType%>;base64,<%=item.imageData[0].data.toString('base64')%>"
+                                            alt="">
+                                    </div>
+                                </td>
+
+                                <td class="p-title">
+                                    <%= item.title%>
+                                </td>
+                                <td class="p-brand">
+                                    <%= item.brand%>
+                                </td>
+                                <td class="p-stock">
+                                    <%= item.stock%>
+                                </td>
+                                <td class="p-price">
+                                    <%= item.price%>
+                                </td>
+                                <td class="p-category">
+                                    <%= item.category%>
+                                </td>
+                                <td class="p-totalsold">
+                                    <%= item.totalSold%>
+                                </td>
+
+                                <td>
+                                    <div class="p-action">
+                                        <button name="viewCommentsButton" class="btn btn-secondary"
+                                            value="<%= item.id%>">View
+                                            Comments</button>
+
+                                        <button name="editItemButton" class="btn btn-secondary"
+                                            value="<%= item.id%>">Edit</button>
+
+                                        <% if(item.disabled){ %>
+                                            <button name="enbleButton" class="btn btn-secondary"
+                                                value="<%= item.id%>">Enable</button>
+                                            <% }else{ %>
+                                                <button name="disableButton" class="btn btn-secondary"
+                                                    value="<%= item.id%>">Disable</button>
+                                            <% } %>
+                                        <button name="deleteItemButton" class="btn btn-secondary" value="<%= item.id%>">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- edit item detail -->
+        <div class="editItemDetailDiv">
+            <div class="editItemCenter">
+                <form id="editItemForm" method="post" action="/item/editItem" enctype="multipart/form-data">
+                    <table class="infoTable_editItem">
+                        <tr>
+                            <td id="itemImgInputLabel_t">Upload item image:</td>
+                            <td><input class="" id="itemImgInputEdit" type="file" name="itemImgInput" /></td>
+                        </tr>
+                        <tr>
+                            <td id="itemNameInput_t">Item name:</td>
+                            <td><input name="name" class="" type="text" id="itemNameInputEdit"></td>
+                        </tr>
+
+                        <tr>
+                            <td id="itemBrandInput_t">Item brand:</td>
+                            <td><input name="brand" class="" type="text" id="itemBrandInputtEdit"></td>
+                        </tr>
+
+                        <tr>
+                            <td id="numStockInput_t">Number of stock:</td>
+                            <td><input name="stock" class="" id="numStockInputtEdit" type="number" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td id="itemPriceInput_t">Item Price:</td>
+                            <td><input name="price" class="" id="itemPriceInputtEdit" type="number" value="0"></td>
+                        </tr>
+
+                        <tr>
+                            <td id="itemCategorySelection_t">Choose item category:</td>
+                            <td>
+                                <select id="itemCategorySelection_e" name="itemCategory">
+                                    <option value="shirts">shirts</option>
+                                    <option value="suits">suits</option>
+
+                                    <option value="jackets">jackets</option>
+                                    <option value="dress">dress</option>
+
+                                    <option value="pants">pants</option>
+                                    <option value="shoes">shoes</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <input id="editItemFormHiddenInputBusinessId" type="hidden" name="sellerId">
+                    <input id="editItemFormHiddenInputItemId" type="hidden" name="itemId">
+                </form>
+
+                <div class="editItemInfoButton">
+                    <button id="confirmEditItemButton" class="btn btn-secondary" type = "submit">Confirm</button>
+                    <button id="canceEditlItemButton" class="btn btn-secondary">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- view item comments -->
+        <div class="viewItemCommentsDiv">
+            <div class="viewCommentsCenter">
+                <div class="viewCommentTtile">
+                    Comments
+                </div>
+                <div style="height: 430px; overflow: scroll;">
+                    <table id="viewCommentTable">
+                        <thead>
+                            <tr id="tableHeader">
+                                <td id="reviewerTitle">Reviewer</td>
+                                <td id="ratingTitle">Rating</td>
+                                <td id="commentTitle">Comment</td>
+                            </tr>
+                        </thead>
+                        <tbody id="viewCommentBody">
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+
+            <div id="closeCommentsButton">
+                <button id="closeCommentsButton" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <div id="uploadItemDiv">
+            <form id="uploadItemForm" method="post" action="/item/uploadItem" enctype="multipart/form-data">
+                <table class="infoTable_uploadItem">
+                    <tr>
+                        <td id="itemImgInputLabel_t">Upload item image:</td>
+                        <td><input class="" id="itemImgInput" type="file" name="itemImgInput" /></td>
+                    </tr>
+                    <tr>
+                        <td id="itemNameInput_t">Item name:</td>
+                        <td><input name="name" class="" type="text" id="itemNameInput"></td>
+                    </tr>
+
+                    <tr>
+                        <td id="itemBrandInput_t">Item brand:</td>
+                        <td><input name="brand" class="" type="text" id="itemBrandInput"></td>
+                    </tr>
+
+                    <tr>
+                        <td id="numStockInput_t">Number of stock:</td>
+                        <td><input name="stock" class="" id="numStockInput" type="number" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td id="itemPriceInput_t">Item Price:</td>
+                        <td><input name="price" class="" id="itemPriceInput" type="number" value="0"></td>
+                    </tr>
+
+                    <tr>
+                        <td id="itemCategorySelection_t">Choose item category:</td>
+                        <td>
+                            <select id="itemCategorySelection" name="itemCategory">
+                                <option value="shirts">shirts</option>
+                                <option value="suits">suits</option>
+
+                                <option value="jackets">jackets</option>
+                                <option value="dress">dress</option>
+
+                                <option value="pants">pants</option>
+                                <option value="shoes">shoes</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <input id="itemSellerId" type="hidden" name="sellerId">
+            </form>
+
+            <div class="infoButton">
+                <button id="uploadItemButton" class="btn btn-secondary">Upload</button>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

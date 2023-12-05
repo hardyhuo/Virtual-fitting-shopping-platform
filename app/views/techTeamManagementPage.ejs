@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../template/bootStrapSetUp.ejs'); -%>
+
+    <script>
+
+        let tId = $.cookie("techTeamId");
+        if (tId === undefined) {
+            window.location.href = '/';
+        }
+
+        function logOut() {
+            let tid = $.cookie("techTeamId");
+
+            if (tid !== undefined) {
+                $.removeCookie('techTeamId', { path: '/' });
+                alert("Log out Successfully");
+                window.location.href = '/';
+            }
+            else {
+                alert("Please Login First");
+            }
+        }
+
+
+        function searchByUser() {
+            let searchInput = document.getElementById('searchInput').value;
+            if (searchInput.replace(/\s/g, '') === "") {
+                alert("Please enter a search string.");
+                return;
+            }
+            document.getElementById('searchByUserHiddenInput').setAttribute('value', searchInput);;
+            document.getElementById('searchUserForm').submit()
+        }
+
+        function searchByBusiness() {
+            let searchInput = document.getElementById('searchInput').value;
+            if (searchInput.replace(/\s/g, '') === "") {
+                alert("Please enter a search string.");
+                return;
+            }
+            document.getElementById('searchByBusinessHiddenInput').setAttribute('value', searchInput);
+            document.getElementById('searchBusinessForm').submit();
+        }
+    </script>
+
+    <head>
+        <title>Tech Team Management Page</title>
+        <script src="/js/techManagement.js"></script>
+        <link rel="stylesheet" href="/css/techManagement.css" type="text/css">
+    </head>
+
+    <body id="main" , style="background-color:white">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a id="webTitleBackHomeTag" class="navbar-brand">eShop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item active">
+                        <a id="logoutTag" class="nav-link" href="javascript:logOut();">Log out <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div>
+                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" id="searchInput"
+                    name="searchInput">
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Search Method
+                </button>
+                <div class="dropdown-menu">
+
+                    <form action="/techTeam/searchByUserName" method="get" id="searchUserForm">
+                        <!-- form elements -->
+                        <input class="form-control mr-2" type="hidden" id="searchByUserHiddenInput"
+                            name="searchByUserHiddenInput">
+                        <a class="dropdown-item" href="javascript:searchByUser();" onclick="">Search By User</a>
+                    </form>
+
+                    <form action="/techTeam/searchByBusinessName" method="get" id="searchBusinessForm">
+                        <!-- form elements -->
+                        <input class="form-control mr-2" type="hidden" id="searchByBusinessHiddenInput"
+                            name="searchByBusinessHiddenInput">
+                        <a class="dropdown-item" href="javascript:searchByBusiness();" onclick="">Search By Business</a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div id="buttonArea">
+            <button id="userManagementButton" class="btn btn-secondary clickHighLight">Manage Users</button>
+            <button id="businessManagementButton" class="btn btn-secondary clickHighLight">Manage Shops</button>
+        </div>
+
+        <div id="fullContentDiv">
+
+            <div class="userHeader">
+                <div class="userIdTitle">ID</div>
+                <div class="userNameTitle">Name</div>
+                <div class="userEmailTitle">Email</div>
+                <div class="userGenderTitle">Gender</div>
+                <div class="managementOperation">Operation</div>
+            </div>
+
+            <div id="allUsersDiv">
+                <% for(let user of allUsers) {%>
+                    <div class="userInfoLine">
+                        <div class="userInfoEntry">
+                            <p id="userId">
+                                <%= user.id%>
+                            </p>
+                            <p id="userName">
+                                <%= user.userName%>
+                            </p>
+                            <p id="userEmail">
+                                <%= user.email%>
+                            </p>
+                            <% if(user.gender==0){ %>
+                                <p id="userGender">Male</p>
+                            <% } else {%>
+                            <p id="userGender">Female</p>
+                            <% } %>
+
+                            <% if(!user.disabled){ %>
+                                <button name="banUserButton" type="button" class="btn btn-warning"
+                                    value="<%= user.id%>">Ban this user</button>
+                            <% } else {%>
+                                <button name="unBanUserButton" type="button" class="btn btn-success"
+                                    value="<%= user.id%>">Unban this user</button>
+                            <% } %>
+
+                            <button name="deleteUserButton" type="button" class="btn btn-danger" value="<%= user.id%>">Delete this user</button>
+                        </div>
+
+                    </div>
+                <% } %>
+            </div>
+
+            <div id="allShopsDiv">
+
+                <% for(let business of allBusiness) {%>
+                    <div class="shopInfoLine">
+                        <div class="businessInfoEntry">
+                            <p id="shopId">
+                                <%= business.id%>
+                            </p>
+                            <p id="shopName">
+                                <%= business.title%>
+                            </p>
+                            <p id="shopEmail">
+                                <%= business.email%>
+                            </p>
+                            <p id="shopRating">
+                                <%= business.rating%>
+                            </p>
+
+                            <% if(!business.disabled){ %>
+                                <button name="banBusinessButton" type="button" class="btn btn-warning"
+                                    value="<%= business.id%>">Ban this business</button>
+                            <% } else {%>
+                                <button name="unBanBusinessButton" type="button" class="btn btn-success"
+                                    value="<%= business.id%>">Unban this business</button>
+                            <% } %>
+
+                            <button name="deleteBusinessButton" type="button" class="btn btn-danger"
+                                value="<%= business.id%>">Delete this business</button>
+                        </div>
+
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,22 @@
+.title{
+    font-size: 48px;
+}
+
+.inputBar{
+    width: 500px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.inputBar ul{
+    margin-bottom: 20px;
+}
+
+#signUpBusinessButton{
+    width: 150px;
+    margin-left: 350px;
+}
+
+.list ul{
+    margin-top: 50px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../template/bootStrapSetUp.ejs'); -%>
+
+    <head>
+        <title>User Recommendation Page</title>
+        <link rel="stylesheet" href="/css/recommendationPage.css" type="text/css">    
+    </head>
+
+    <body id = "main", style="background-color:white">
+
+        <%- include('../template/navBar.ejs'); -%>
+
+        <div id = "mainDiv">
+            <% if(recommendationList.length>0){ %>
+                <p class = "bold">Something you might like</p>
+                <% for(let item of recommendationList) { %>
+                        <div class = "itemEntry">
+                            <div class = "itemImgEntry">
+                                <img class="post-img-preview" src="data:image/<%=item.imageData[0].contentType%>;base64,<%=item.imageData[0].data.toString('base64')%>" alt="">
+                            </div>
+                            <div class = "itemTextEntry">
+                                <p>Item Name: <%= item.title%></p>
+                                <p>Item Brand: <%= item.brand%></p>
+                                <p>Item Price: <%= item.price%></p>
+                                <form method="get" action="/item/itemDetailPage/<%= item._id%>">
+                                    <button class = "btn btn-secondary" type="submit">View Product</button>
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                    <% } %>
+            <%} else {%>
+                <div>
+                    <p class = "noRecommendationP">No Recommendation Yet</p>
+                </div>
+            <% } %>
+        </div>
+    </body>
+
+</html>

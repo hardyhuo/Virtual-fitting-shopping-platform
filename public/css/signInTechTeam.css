@@ -1,0 +1,15 @@
+.title{
+    font-size: 48px;
+}
+
+.inputBar{
+    width: 500px;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+#loginButton{
+    width: 150px;
+    margin-left: 350px;
+}
+

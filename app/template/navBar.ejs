@@ -1,0 +1,159 @@
+<script src="/js/checkLogin.js"></script>
+
+<script>
+    function logOut() {
+        let userId = $.cookie("userId");
+
+        if (userId !== undefined) {
+            $.removeCookie('userId', { path: '/' });
+            alert("Log out successfully");
+            window.location.href = '/';
+        }
+        else {
+            alert("Please Login First");
+        }
+    }
+
+    function searchByTitle() {
+        let searchInput = document.getElementById('searchInput').value;
+        if (searchInput.replace(/\s/g, '') === "") {
+            alert("Please enter a search string.");
+            return;
+        }
+        document.getElementById('searchByTitleHiddenInput').setAttribute('value', searchInput);;
+        document.getElementById('searchItemForm').submit()
+    }
+
+    function searchByBusiness() {
+        let searchInput = document.getElementById('searchInput').value;
+        if (searchInput.replace(/\s/g, '') === "") {
+            alert("Please enter a search string.");
+            return;
+        }
+        document.getElementById('searchByBusinessHiddenInput').setAttribute('value', searchInput);;
+        document.getElementById('searchBusinessForm').submit()
+    }
+
+    function getUserProfilePage() {
+        //get user id from cookie
+        let userId = $.cookie("userId");
+
+        //redirect to the profile page if user id exists
+        if (userId !== undefined) {
+            window.location.href = '/user/getUserProfilePage/' + userId;
+        }
+        else {
+            alert("Please Login First");
+        }
+    }
+
+    function shoppingCartPage() {
+        //call user profile page routes
+        let userId = $.cookie("userId");
+
+        if (userId !== undefined) {
+            window.location.href = '/user/shoppingCartPage/' + userId;
+        }
+        else {
+            alert("Please Login First");
+        }
+    }
+
+    function recommendationPage() {
+        let userId = $.cookie("userId");
+
+        if (userId !== undefined) {
+            window.location.href = '/user/recommendationPage/' + userId;
+        }
+        else {
+            alert("Please Login First");
+            window.location.href = '/';
+        }
+    }
+
+</script>
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a id="webTitleBackHomeTag" class="navbar-brand">eShop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+                <a id="homeTag" class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a id="loginTag" class="nav-link" href="/signInUp/loginPage">
+                    Login <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+            <li class="nav-item active">
+                <a id="recommandationTag" class="nav-link" href="javascript:recommendationPage();">
+                    Recommendation<span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+            <li class="nav-item active">
+                <a id="logoutTag" class="nav-link" href="javascript:logOut();">
+                    Log out <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            
+        </ul>
+
+        <div id="userProfileIcon">
+            <button style="border:none; background-color: transparent;" onclick="getUserProfilePage()"
+                class="btn btn-secondary">
+                <i class='far fa-user-circle' style='font-size:24px; color:white'></i>
+            </button>
+        </div>
+
+        <div id="shoppingCartIcon">
+            <button style="border:none; background-color: transparent;" onclick="shoppingCartPage()"
+                class="btn btn-secondary">
+                <i class='fas fa-shopping-cart' style='font-size:24px; color:white'></i>
+            </button>
+        </div>
+
+        <div>
+            <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" id="searchInput"
+                name="searchInput">
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Search Method
+            </button>
+            <div class="dropdown-menu">
+
+                <form action="/search/searchByTitle" method="get" id="searchItemForm">
+                    <!-- form elements -->
+                    <input class="form-control mr-2" type="hidden" id="searchByTitleHiddenInput"
+                        name="searchByTitleHiddenInput">
+                    <a class="dropdown-item" href="javascript:searchByTitle();" onclick="">Search By Item</a>
+                </form>
+
+                <form action="/search/searchByBusinessName" method="get" id="searchBusinessForm">
+                    <!-- form elements -->
+                    <input class="form-control mr-2" type="hidden" id="searchByBusinessHiddenInput"
+                        name="searchByBusinessHiddenInput">
+                    <a class="dropdown-item" href="javascript:searchByBusiness();" onclick="">Search By Business</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+    #searchButton {
+        margin-left: 1em;
+    }
+</style>
